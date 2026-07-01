@@ -10,8 +10,25 @@ import { Icon, Reveal, IMG, CONTACT } from '../shared.jsx';
 /**
  * VS Resort — Enquiry page. Split layout: contact details + form.
  */
+const WEB3FORMS_KEY = '8e658bb1-d5e7-45e5-bd1a-92b76706e383';
+
 function EnquiryPage() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setSending(true);
+    const formData = new FormData(e.target);
+    formData.append('access_key', WEB3FORMS_KEY);
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData,
+    });
+    setSending(false);
+    if (res.ok) setSent(true);
+    else alert('Something went wrong. Please try again or WhatsApp us.');
+  }
 
   const contact = [
     { icon: 'MapPin', label: 'Sector 56, Gurugram, Haryana' },
@@ -72,18 +89,18 @@ function EnquiryPage() {
                 <p style={{ fontFamily: 'var(--font-body)', color: 'var(--text-muted)', margin: 0 }}>Your enquiry is in. We'll be in touch within 24 hours.</p>
               </div>
             ) : (
-              <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} className="vs-enquiry-form" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18 }}>
-                <Input label="Full Name" placeholder="Your name" required />
-                <Input label="Phone" placeholder="+91 ..." required />
-                <Input label="Email" type="email" placeholder="you@email.com" />
-                <Input label="Event Date" type="date" />
-                <Select label="Occasion" placeholder="Select an occasion" options={['Wedding', 'Reception', 'Corporate Event', 'Birthday', 'Private Dining', 'Other']} />
-                <Select label="Guests" placeholder="Approx. guests" options={['Under 100', '100 – 300', '300 – 600', '600 – 1000']} />
+              <form onSubmit={handleSubmit} className="vs-enquiry-form" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18 }}>
+                <Input name="name" label="Full Name" placeholder="Your name" required />
+                <Input name="phone" label="Phone" placeholder="+91 ..." required />
+                <Input name="email" label="Email" type="email" placeholder="you@email.com" />
+                <Input name="event_date" label="Event Date" type="date" />
+                <Select name="occasion" label="Occasion" placeholder="Select an occasion" options={['Wedding', 'Reception', 'Corporate Event', 'Birthday', 'Private Dining', 'Other']} />
+                <Select name="guests" label="Guests" placeholder="Approx. guests" options={['Under 100', '100 – 300', '300 – 600', '600 – 1000']} />
                 <div style={{ gridColumn: '1 / -1' }}>
-                  <Textarea label="Tell us about your event" rows={4} placeholder="Your vision, preferred spaces, any questions..." />
+                  <Textarea name="message" label="Tell us about your event" rows={4} placeholder="Your vision, preferred spaces, any questions..." />
                 </div>
                 <div style={{ gridColumn: '1 / -1' }}>
-                  <Button variant="primary" size="lg" fullWidth type="submit">Send Enquiry</Button>
+                  <Button variant="primary" size="lg" fullWidth type="submit" disabled={sending}>{sending ? 'Sending...' : 'Send Enquiry'}</Button>
                 </div>
               </form>
             )}
