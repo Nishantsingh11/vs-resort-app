@@ -229,10 +229,10 @@ export function GhostType({ children, top = -30, left = '50%', color = 'var(--fo
   );
 }
 
-const U = (id, w = 1400) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
+const U = (id, w = 1400) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w * 2}&q=95`;
 
 export const IMG = {
-  heroLawn:    U('1519225421980-715cb0215aed', 2000),
+  heroLawn:    U('1782025419777-09e493453d9f', 2000),
   banquet:     U('1464366400600-7168b8af9bc3', 1600),
   banquet2:    U('1530103862676-de8c9debad1d', 1200),
   banquet3:    U('1511795409834-ef04bbd61622', 1200),

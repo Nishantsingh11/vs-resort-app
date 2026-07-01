@@ -13,7 +13,7 @@ import { Icon, Reveal, CountUp, HScroll, SideIndex, AnimatedHairline, GhostType,
  * VS Resort — venue/amenity page. Grain+parallax hero, sticky side index,
  * asymmetric offset intro grid, bento features, horizontal gallery, big numerals.
  */
-function VenuePage({ data, onNavigate, atmo = 'daylight', grain = true }) {
+function VenuePage({ data, onNavigate, atmo = 'daylight', grain = false }) {
   const A = ATMO[atmo] || ATMO.daylight;
   const bgRef = useRef(null);
 

@@ -10,7 +10,7 @@ import { VENUES } from './venues.js';
 
 const TWEAK_DEFAULTS = {
   atmosphere: 'daylight',
-  grain: true,
+  grain: false,
   motion: 'lush',
 };
 

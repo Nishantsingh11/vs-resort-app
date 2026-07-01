@@ -13,7 +13,7 @@ import { Icon, Reveal, CountUp, Marquee, HScroll, AnimatedHairline, GhostType, I
  * VS Resort — Home page. Parallax + cursor-glow + grain hero, availability strip,
  * marquee ribbon, count-up stats, bento amenities, horizontal gallery, ghost type.
  */
-function HomePage({ onNavigate, atmo = 'daylight', grain = true }) {
+function HomePage({ onNavigate, atmo = 'daylight', grain = false }) {
   const A = ATMO[atmo] || ATMO.daylight;
   const heroRef = useRef(null);
   const bgRef = useRef(null);
@@ -56,11 +56,13 @@ function HomePage({ onNavigate, atmo = 'daylight', grain = true }) {
         className={grain ? 'vs-grain' : ''}
         style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden' }}
       >
-        <div ref={bgRef} style={{
+        <video ref={bgRef} autoPlay muted loop playsInline poster={IMG.heroLawn} style={{
           position: 'absolute', inset: '-6% 0', zIndex: 0,
-          backgroundImage: `url(${IMG.heroLawn})`, backgroundSize: 'cover', backgroundPosition: 'center',
+          width: '100%', height: '112%', objectFit: 'cover',
           willChange: 'transform',
-        }} />
+        }}>
+          <source src="/video/hero.mp4" type="video/mp4" />
+        </video>
         <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: A.heroScrim }} />
         <div ref={glowRef} style={{
           position: 'absolute', width: 520, height: 520, borderRadius: '50%', zIndex: 1,
