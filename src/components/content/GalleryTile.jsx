@@ -36,7 +36,7 @@ export function GalleryTile({ src, alt = '', caption, ratio = '4 / 3', style = {
         <figcaption style={{
           position: 'absolute', inset: 'auto 0 0 0', padding: '16px 18px',
           fontFamily: 'var(--font-display)', fontStyle: 'italic',
-          fontSize: 'var(--text-lg)', color: 'var(--cream-100)',
+          fontSize: 'var(--text-lg)', color: 'var(--forest-800)',
           background: 'linear-gradient(to top, rgba(30,40,26,0.78), transparent)',
           opacity: 0, transform: 'translateY(8px)',
           transition: 'opacity var(--dur-base) var(--ease-soft), transform var(--dur-base) var(--ease-soft)',

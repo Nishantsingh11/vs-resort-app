@@ -53,7 +53,7 @@ function VenuePage({ data, onNavigate, atmo = 'daylight', grain = true }) {
           <h1 className="vs-rise" style={{
             animationDelay: '140ms',
             fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 'var(--text-d1)',
-            lineHeight: 1.05, letterSpacing: '-0.02em', color: 'var(--cream-100)', margin: '18px 0 0', maxWidth: 760,
+            lineHeight: 1.05, letterSpacing: '-0.02em', color: 'var(--forest-800)', margin: '18px 0 0', maxWidth: 760,
           }}>{data.title}</h1>
           <div className="vs-rise" style={{ animationDelay: '280ms', display: 'flex', gap: 10, marginTop: 22, flexWrap: 'wrap' }}>
             {data.badges.map((b) => <Badge key={b} tone="gold">{b}</Badge>)}
@@ -141,11 +141,11 @@ function VenuePage({ data, onNavigate, atmo = 'daylight', grain = true }) {
       </section>
 
       {/* CTA BAND */}
-      <section id="v-enquire" className={grain ? 'vs-grain' : ''} style={{ position: 'relative', background: 'var(--forest-800)', padding: '80px var(--gutter)', overflow: 'hidden' }}>
+      <section id="v-enquire" className={grain ? 'vs-grain' : ''} style={{ position: 'relative', background: 'var(--surface-card)', padding: '80px var(--gutter)', overflow: 'hidden' }}>
         <div style={{ position: 'relative', zIndex: 3, maxWidth: 'var(--container-narrow)', margin: '0 auto', textAlign: 'center' }}>
           <Reveal>
-            <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 'var(--text-d3)', color: 'var(--cream-100)', margin: 0 }}>{data.ctaTitle}</h2>
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--text-md)', color: 'rgba(248,242,232,0.78)', margin: '16px auto 28px', maxWidth: 460, lineHeight: 1.7 }}>{data.ctaText}</p>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 'var(--text-d3)', color: 'var(--forest-800)', margin: 0 }}>{data.ctaTitle}</h2>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--text-md)', color: 'var(--ink-700)', margin: '16px auto 28px', maxWidth: 460, lineHeight: 1.7 }}>{data.ctaText}</p>
             <Button variant="primary" size="lg" onClick={() => onNavigate('enquire')}>Check Availability</Button>
           </Reveal>
         </div>

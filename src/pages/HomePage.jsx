@@ -78,7 +78,7 @@ function HomePage({ onNavigate, atmo = 'daylight', grain = true }) {
               animationDelay: '260ms',
               fontFamily: 'var(--font-display)', fontWeight: 600,
               fontSize: 'var(--text-hero)', lineHeight: 1.04, letterSpacing: '-0.02em',
-              color: 'var(--cream-100)', margin: '22px 0 0',
+              color: 'var(--forest-800)', margin: '22px 0 0',
             }}>Make Every<br/>Occasion <span style={{ fontStyle: 'italic', color: 'var(--gold-400)' }}>Magical</span></h1>
             <p className="vs-rise" style={{
               animationDelay: '440ms',
@@ -88,7 +88,7 @@ function HomePage({ onNavigate, atmo = 'daylight', grain = true }) {
             <div className="vs-rise" style={{ animationDelay: '620ms', display: 'flex', gap: 16, marginTop: 38, flexWrap: 'wrap' }}>
               <Button variant="primary" size="lg" onClick={() => onNavigate('enquire')}>Plan Your Event</Button>
               <Button variant="outline" size="lg" onClick={() => onNavigate('banquet')}
-                style={{ color: 'var(--cream-100)', borderColor: 'rgba(248,242,232,0.5)' }}
+                style={{ color: 'var(--forest-800)', borderColor: 'rgba(248,242,232,0.5)' }}
                 iconRight={<Icon name="ArrowRight" size={16} />}>Explore the Venue</Button>
             </div>
 
@@ -98,7 +98,7 @@ function HomePage({ onNavigate, atmo = 'daylight', grain = true }) {
               backdropFilter: 'blur(8px)', borderRadius: 'var(--radius-pill)', padding: '8px 8px 8px 20px', flexWrap: 'wrap' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, paddingRight: 18 }}>
                 <Icon name="CalendarCheck" size={17} color="var(--gold-400)" />
-                <span style={{ fontFamily: 'var(--font-body)', fontSize: 13.5, color: 'var(--cream-100)' }}>
+                <span style={{ fontFamily: 'var(--font-body)', fontSize: 13.5, color: 'var(--forest-800)' }}>
                   <strong style={{ fontWeight: 600 }}>2026 dates open</strong> · Oct–Mar peak season
                 </span>
               </div>
@@ -137,7 +137,7 @@ function HomePage({ onNavigate, atmo = 'daylight', grain = true }) {
         <Reveal delay={120}>
           <div className="vs-stats" style={{
             position: 'relative', zIndex: 1,
-            maxWidth: 'var(--container-max)', margin: '56px auto 0', background: 'var(--forest-800)',
+            maxWidth: 'var(--container-max)', margin: '56px auto 0', background: 'var(--surface-card)',
             borderRadius: 'var(--radius-lg)', padding: '52px 44px', display: 'grid',
             gridTemplateColumns: 'repeat(4,1fr)', gap: 24, boxShadow: 'var(--shadow-lg)',
           }}>
@@ -151,7 +151,7 @@ function HomePage({ onNavigate, atmo = 'daylight', grain = true }) {
                 <div style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 'var(--text-d2)', lineHeight: 1, color: 'var(--gold-400)' }}>
                   <CountUp end={s.end} suffix={s.suffix} />
                 </div>
-                <div style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--text-xs)', fontWeight: 600, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(248,242,232,0.72)', marginTop: 12 }}>{s.label}</div>
+                <div style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--text-xs)', fontWeight: 600, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--ink-700)', marginTop: 12 }}>{s.label}</div>
               </div>
             ))}
           </div>

@@ -9,17 +9,17 @@ export default function Footer({ onNavigate }) {
         <a key={it.label} href={it.href} target={it.href?.startsWith('http') ? '_blank' : undefined} rel={it.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
         onClick={() => it.id && onNavigate(it.id)} style={{
           cursor: it.id || it.href ? 'pointer' : 'default', fontFamily: 'var(--font-body)', fontSize: 14,
-          color: 'rgba(248,242,232,0.78)', transition: 'color .2s ease',
+          color: 'var(--ink-500)', transition: 'color .2s ease',
         }}
-        onMouseEnter={(e) => e.currentTarget.style.color = 'var(--cream-100)'}
-        onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(248,242,232,0.78)'}
+        onMouseEnter={(e) => e.currentTarget.style.color = 'var(--forest-800)'}
+        onMouseLeave={(e) => e.currentTarget.style.color = 'var(--ink-500)'}
         >{it.label}</a>
       ))}
     </div>
   );
 
   return (
-    <footer style={{ background: 'var(--forest-900)', color: 'var(--cream-100)' }}>
+    <footer style={{ background: 'var(--surface-page)', color: 'var(--forest-800)' }}>
       <div className="vs-footer-grid" style={{
         maxWidth: 'var(--container-max)', margin: '0 auto', padding: '72px var(--gutter) 40px',
         display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr 1fr', gap: 40,
@@ -27,7 +27,7 @@ export default function Footer({ onNavigate }) {
         <div>
           <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 26 }}>VS Resort</div>
           <p style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: 17, color: 'var(--gold-400)', margin: '8px 0 18px' }}>Make Every Occasion Magical</p>
-          <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.7, color: 'rgba(248,242,232,0.7)', maxWidth: 280, margin: 0 }}>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.7, color: 'var(--ink-500)', maxWidth: 280, margin: 0 }}>
             A luxury farmhouse &amp; event venue in Gurugram, set across landscaped lawns and gardens.
           </p>
         </div>
@@ -50,11 +50,11 @@ export default function Footer({ onNavigate }) {
           { label: 'Plan a Visit', id: 'enquire' },
         ])}
       </div>
-      <div style={{ borderTop: '1px solid rgba(248,242,232,0.14)' }}>
+      <div style={{ borderTop: '1px solid var(--border-default)' }}>
         <div style={{
           maxWidth: 'var(--container-max)', margin: '0 auto', padding: '22px var(--gutter)',
           display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12,
-          fontFamily: 'var(--font-body)', fontSize: 12.5, color: 'rgba(248,242,232,0.55)',
+          fontFamily: 'var(--font-body)', fontSize: 12.5, color: 'var(--ink-500)',
         }}>
           <span>© 2026 VS Resort. All rights reserved.</span>
           <span>Privacy · Terms</span>

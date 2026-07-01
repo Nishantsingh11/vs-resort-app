@@ -19,7 +19,7 @@ export function IconButton({
     soft: { background: 'var(--cream-200)', color: 'var(--forest-800)', border: '1px solid transparent' },
     outline: { background: 'transparent', color: 'var(--forest-800)', border: '1px solid var(--border-default)' },
     gold: { background: 'var(--gold-500)', color: 'var(--forest-900)', border: '1px solid var(--gold-500)' },
-    onDark: { background: 'rgba(248,242,232,0.12)', color: 'var(--cream-100)', border: '1px solid rgba(248,242,232,0.25)' },
+    onDark: { background: 'rgba(248,242,232,0.12)', color: 'var(--forest-800)', border: '1px solid rgba(248,242,232,0.25)' },
   };
 
   return (

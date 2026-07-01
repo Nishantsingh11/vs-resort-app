@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from './components/core/Button.jsx';
 import { IconButton } from './components/core/IconButton.jsx';
+import { Logo } from './components/core/Logo.jsx';
 
 export default function NavBar({ current, onNavigate, solid = false }) {
   const [open, setOpen] = useState(false);
@@ -17,7 +18,7 @@ export default function NavBar({ current, onNavigate, solid = false }) {
   return (
     <header style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
-      background: solid ? 'rgba(248,242,232,0.92)' : 'transparent',
+      background: solid ? 'rgba(11,11,12,0.92)' : 'transparent',
       backdropFilter: solid ? 'saturate(140%) blur(10px)' : 'none',
       borderBottom: solid ? '1px solid var(--border-subtle)' : '1px solid transparent',
       transition: 'background .4s ease, border-color .4s ease',
@@ -28,9 +29,10 @@ export default function NavBar({ current, onNavigate, solid = false }) {
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       }}>
         <a onClick={() => onNavigate('home')} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 12 }}>
+          <Logo size={44} />
           <span style={{
             fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 22,
-            color: onDark ? 'var(--cream-100)' : 'var(--forest-800)', letterSpacing: '0.01em',
+            color: 'var(--forest-800)', letterSpacing: '0.01em',
           }}>VS Resort</span>
         </a>
 
@@ -39,9 +41,7 @@ export default function NavBar({ current, onNavigate, solid = false }) {
             <a key={l.id} onClick={() => onNavigate(l.id)} style={{
               cursor: 'pointer', fontFamily: 'var(--font-body)', fontSize: 14,
               fontWeight: 500, letterSpacing: '0.01em',
-              color: current === l.id
-                ? (onDark ? 'var(--gold-400)' : 'var(--gold-700)')
-                : (onDark ? 'rgba(248,242,232,0.85)' : 'var(--ink-700)'),
+              color: current === l.id ? 'var(--gold-400)' : 'var(--ink-700)',
               paddingBottom: 4,
               borderBottom: current === l.id ? '1.5px solid var(--gold-500)' : '1.5px solid transparent',
               transition: 'color .2s ease',

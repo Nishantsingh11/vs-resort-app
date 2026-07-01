@@ -72,7 +72,7 @@ export function Marquee({ items, tone = 'forest' }) {
       seq.push(<span key={`${copy}-w-${i}`} style={{
         fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 400,
         fontSize: 'clamp(22px, 3vw, 34px)',
-        color: onForest ? 'var(--cream-100)' : 'var(--forest-800)',
+        color: 'var(--forest-800)',
       }}>{w}</span>);
       seq.push(<span key={`${copy}-d-${i}`} style={{
         width: 8, height: 8, transform: 'rotate(45deg)', flexShrink: 0,
@@ -82,7 +82,7 @@ export function Marquee({ items, tone = 'forest' }) {
   }
   return (
     <div style={{
-      background: onForest ? 'var(--forest-800)' : 'var(--cream-200)',
+      background: onForest ? 'var(--surface-card)' : 'var(--cream-200)',
       borderTop: '1px solid ' + (onForest ? 'rgba(201,162,75,0.25)' : 'var(--border-default)'),
       borderBottom: '1px solid ' + (onForest ? 'rgba(201,162,75,0.25)' : 'var(--border-default)'),
       overflow: 'hidden', padding: '22px 0',

@@ -40,7 +40,7 @@ function EnquiryPage() {
 
   return (
     <section style={{
-      background: `linear-gradient(rgba(248,242,232,0.92), rgba(248,242,232,0.96)), url(${IMG.detail})`,
+      background: `linear-gradient(rgba(11,11,12,0.92), rgba(11,11,12,0.96)), url(${IMG.detail})`,
       backgroundSize: 'cover', backgroundAttachment: 'fixed',
       padding: 'calc(var(--section-y) + 40px) var(--gutter) var(--section-y)',
     }}>

@@ -18,11 +18,11 @@ export function QuoteBlock({ quote, author, role, tone = 'dark', style = {} }) {
       <blockquote style={{
         fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 400,
         fontSize: 'var(--text-d3)', lineHeight: 'var(--leading-snug)',
-        color: onDark ? 'var(--cream-100)' : 'var(--forest-800)',
+        color: 'var(--forest-800)',
         margin: '0 0 24px',
       }}>{quote}</blockquote>
       <figcaption style={{ fontFamily: 'var(--font-body)' }}>
-        <div style={{ fontWeight: 600, fontSize: 'var(--text-sm)', letterSpacing: '0.04em', color: onDark ? 'var(--cream-100)' : 'var(--forest-800)' }}>{author}</div>
+        <div style={{ fontWeight: 600, fontSize: 'var(--text-sm)', letterSpacing: '0.04em', color: 'var(--forest-800)' }}>{author}</div>
         {role && <div style={{ fontSize: 'var(--text-xs)', letterSpacing: '0.14em', textTransform: 'uppercase', color: onDark ? 'var(--gold-400)' : 'var(--gold-700)', marginTop: 6 }}>{role}</div>}
       </figcaption>
     </figure>
