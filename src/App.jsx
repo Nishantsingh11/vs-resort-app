@@ -4,7 +4,7 @@ import Footer from './Footer.jsx';
 import HomePage from './pages/HomePage.jsx';
 import VenuePage from './pages/VenuePage.jsx';
 import EnquiryPage from './pages/EnquiryPage.jsx';
-import { FloatingEnquire, MOTION } from './shared.jsx';
+import { FloatingEnquire, FloatingWhatsApp, MOTION } from './shared.jsx';
 import { useTweaks, TweaksPanel, TweakSection, TweakRadio, TweakToggle } from './tweaks-panel.jsx';
 import { VENUES } from './venues.js';
 
@@ -65,6 +65,7 @@ export default function App() {
       </main>
       <Footer onNavigate={navigate} />
       <FloatingEnquire onClick={() => navigate('enquire')} />
+      <FloatingWhatsApp />
       <TweaksPanel title="Tweaks">
         <TweakSection label="Atmosphere" />
         <TweakRadio label="Time of day" value={t.atmosphere}

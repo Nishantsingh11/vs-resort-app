@@ -6,7 +6,7 @@ import { QuoteBlock } from '../components/content/QuoteBlock.jsx';
 import { SectionHeading } from '../components/content/SectionHeading.jsx';
 import { Eyebrow } from '../components/core/Eyebrow.jsx';
 import { GalleryTile } from '../components/content/GalleryTile.jsx';
-import { Icon, Reveal, CountUp, Marquee, HScroll, AnimatedHairline, GhostType, IMG, ATMO } from '../shared.jsx';
+import { Icon, Reveal, CountUp, Marquee, HScroll, AnimatedHairline, GhostType, IMG, ATMO, MOTION } from '../shared.jsx';
 
 
 /**
@@ -23,7 +23,7 @@ function HomePage({ onNavigate, atmo = 'daylight', grain = true }) {
   useEffect(() => {
     const onScroll = () => {
       if (!bgRef.current) return;
-      const p = window.VSMotion.parallax;
+      const p = MOTION.parallax;
       bgRef.current.style.transform = `translateY(${window.scrollY * p}px) scale(1.12)`;
     };
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -135,7 +135,7 @@ function HomePage({ onNavigate, atmo = 'daylight', grain = true }) {
           </Reveal>
         </div>
         <Reveal delay={120}>
-          <div style={{
+          <div className="vs-stats" style={{
             position: 'relative', zIndex: 1,
             maxWidth: 'var(--container-max)', margin: '56px auto 0', background: 'var(--forest-800)',
             borderRadius: 'var(--radius-lg)', padding: '52px 44px', display: 'grid',

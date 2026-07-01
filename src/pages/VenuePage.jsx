@@ -6,7 +6,7 @@ import { SectionHeading } from '../components/content/SectionHeading.jsx';
 import { Eyebrow } from '../components/core/Eyebrow.jsx';
 import { GalleryTile } from '../components/content/GalleryTile.jsx';
 import { Badge } from '../components/core/Badge.jsx';
-import { Icon, Reveal, CountUp, HScroll, SideIndex, AnimatedHairline, GhostType, ATMO } from '../shared.jsx';
+import { Icon, Reveal, CountUp, HScroll, SideIndex, AnimatedHairline, GhostType, ATMO, MOTION } from '../shared.jsx';
 
 
 /**
@@ -21,7 +21,7 @@ function VenuePage({ data, onNavigate, atmo = 'daylight', grain = true }) {
     const onScroll = () => {
       if (!bgRef.current) return;
       const top = bgRef.current.parentElement.getBoundingClientRect().top;
-      bgRef.current.style.transform = `translateY(${-top * window.VSMotion.parallax}px) scale(1.14)`;
+      bgRef.current.style.transform = `translateY(${-top * MOTION.parallax}px) scale(1.14)`;
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
@@ -64,7 +64,7 @@ function VenuePage({ data, onNavigate, atmo = 'daylight', grain = true }) {
       {/* INTRO — asymmetric offset image grid */}
       <section id="v-intro" style={{ position: 'relative', padding: 'var(--section-y) var(--gutter)', overflow: 'hidden' }}>
         <GhostType top={30} left="82%" size="clamp(120px, 16vw, 240px)">01</GhostType>
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: 'var(--container-max)', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(32px, 6vw, 80px)', alignItems: 'center' }}>
+        <div className="vs-venue-hero" style={{ position: 'relative', zIndex: 1, maxWidth: 'var(--container-max)', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(32px, 6vw, 80px)', alignItems: 'center' }}>
           <Reveal>
             <span style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-lg)', color: 'var(--gold-600)', fontStyle: 'italic' }}>01 — Overview</span>
             <SectionHeading align="left" divider={false} eyebrow={data.introEyebrow} title={data.introTitle} style={{ marginTop: 6 }} />
@@ -107,7 +107,7 @@ function VenuePage({ data, onNavigate, atmo = 'daylight', grain = true }) {
         <GhostType top={30} left="16%" size="clamp(120px, 16vw, 240px)">02</GhostType>
         <div style={{ position: 'relative', zIndex: 1, maxWidth: 'var(--container-max)', margin: '0 auto' }}>
           <Reveal><SectionHeading eyebrow="What's Included" title={data.featuresTitle} /></Reveal>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 22, marginTop: 56 }}>
+          <div className="vs-venue-trio" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 22, marginTop: 56 }}>
             {data.features.map((f, i) => (
               <Reveal key={f.title} delay={(i % 3) * 90} style={i === 0 ? { gridColumn: 'span 1' } : {}}>
                 <AmenityCard icon={<Icon name={f.icon} />} title={f.title} description={f.desc} style={{ height: '100%' }} />

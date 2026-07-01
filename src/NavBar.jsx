@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from './components/core/Button.jsx';
+import { IconButton } from './components/core/IconButton.jsx';
 
 export default function NavBar({ current, onNavigate, solid = false }) {
   const [open, setOpen] = useState(false);
@@ -48,8 +49,34 @@ export default function NavBar({ current, onNavigate, solid = false }) {
           ))}
         </nav>
 
-        <Button variant="primary" size="sm" onClick={() => onNavigate('enquire')}>Enquire</Button>
+        <Button className="vs-nav-cta" variant="primary" size="sm" onClick={() => onNavigate('enquire')}>Enquire</Button>
+
+        <IconButton
+          className="vs-nav-toggle"
+          variant={onDark ? 'onDark' : 'outline'}
+          label={open ? 'Close menu' : 'Open menu'}
+          onClick={() => setOpen((v) => !v)}
+          style={{ display: 'none' }}
+        >
+          {open ? '✕' : '☰'}
+        </IconButton>
       </div>
+
+      {open && (
+        <nav className="vs-nav-mobile" style={{
+          background: 'var(--cream-100)', borderTop: '1px solid var(--border-subtle)',
+          display: 'flex', flexDirection: 'column', padding: '12px var(--gutter) 20px',
+        }}>
+          {links.map((l) => (
+            <a key={l.id} onClick={() => { setOpen(false); onNavigate(l.id); }} style={{
+              cursor: 'pointer', fontFamily: 'var(--font-body)', fontSize: 15,
+              fontWeight: 500, padding: '12px 0', color: current === l.id ? 'var(--gold-700)' : 'var(--ink-700)',
+              borderBottom: '1px solid var(--border-subtle)',
+            }}>{l.label}</a>
+          ))}
+          <Button variant="primary" size="sm" style={{ marginTop: 16 }} onClick={() => { setOpen(false); onNavigate('enquire'); }}>Enquire</Button>
+        </nav>
+      )}
     </header>
   );
 }

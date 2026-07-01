@@ -1,0 +1,15 @@
+/* ponytail: mobile breakpoint only, add md breakpoint if a tablet layout is ever needed */
+@media (max-width: 768px) {
+  .vs-nav-links, .vs-nav-cta { display: none !important; }
+  .vs-nav-toggle { display: inline-flex !important; }
+
+  .vs-bento { grid-template-columns: 1fr !important; grid-auto-rows: 240px !important; }
+  .vs-bento > * { grid-column: span 1 !important; grid-row: span 1 !important; }
+
+  .vs-stats { grid-template-columns: repeat(2, 1fr) !important; }
+  .vs-footer-grid { grid-template-columns: 1fr !important; }
+  .vs-venue-hero { grid-template-columns: 1fr !important; }
+  .vs-venue-trio { grid-template-columns: 1fr !important; }
+  .vs-enquiry-grid { grid-template-columns: 1fr !important; }
+  .vs-enquiry-form { grid-template-columns: 1fr !important; }
+}

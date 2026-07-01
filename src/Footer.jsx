@@ -1,12 +1,14 @@
 import React from 'react';
+import { CONTACT } from './shared.jsx';
 
 export default function Footer({ onNavigate }) {
   const col = (title, items) => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
       <div style={{ fontFamily: 'var(--font-body)', fontSize: 12, fontWeight: 600, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--gold-400)' }}>{title}</div>
       {items.map((it) => (
-        <a key={it.label} onClick={() => it.id && onNavigate(it.id)} style={{
-          cursor: it.id ? 'pointer' : 'default', fontFamily: 'var(--font-body)', fontSize: 14,
+        <a key={it.label} href={it.href} target={it.href?.startsWith('http') ? '_blank' : undefined} rel={it.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
+        onClick={() => it.id && onNavigate(it.id)} style={{
+          cursor: it.id || it.href ? 'pointer' : 'default', fontFamily: 'var(--font-body)', fontSize: 14,
           color: 'rgba(248,242,232,0.78)', transition: 'color .2s ease',
         }}
         onMouseEnter={(e) => e.currentTarget.style.color = 'var(--cream-100)'}
@@ -18,7 +20,7 @@ export default function Footer({ onNavigate }) {
 
   return (
     <footer style={{ background: 'var(--forest-900)', color: 'var(--cream-100)' }}>
-      <div style={{
+      <div className="vs-footer-grid" style={{
         maxWidth: 'var(--container-max)', margin: '0 auto', padding: '72px var(--gutter) 40px',
         display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr 1fr', gap: 40,
       }}>
@@ -41,8 +43,11 @@ export default function Footer({ onNavigate }) {
           { label: 'Birthdays' }, { label: 'Private Dining' },
         ])}
         {col('Contact', [
-          { label: 'Sector 56, Gurugram' }, { label: '+91 98000 00000' },
-          { label: 'hello@vsresort.in' }, { label: 'Plan a Visit', id: 'enquire' },
+          { label: 'Sector 56, Gurugram' },
+          { label: CONTACT.phoneDisplay, href: CONTACT.tel },
+          { label: 'Chat on WhatsApp', href: CONTACT.whatsapp },
+          { label: 'hello@vsresort.in', href: 'mailto:hello@vsresort.in' },
+          { label: 'Plan a Visit', id: 'enquire' },
         ])}
       </div>
       <div style={{ borderTop: '1px solid rgba(248,242,232,0.14)' }}>

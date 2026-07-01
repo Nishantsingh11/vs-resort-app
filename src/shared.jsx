@@ -4,6 +4,12 @@ import * as LucideIcons from 'lucide-react';
 
 export const MOTION = { y: 28, parallax: 0.18, marquee: 34, count: 1650 };
 
+export const CONTACT = {
+  phoneDisplay: '+91 98000 00000',
+  tel: 'tel:+919800000000',
+  whatsapp: 'https://wa.me/919800000000',
+};
+
 export function Icon({ name, size = 22, color = 'currentColor', strokeWidth = 1.6, style = {} }) {
   const LucideIcon = LucideIcons[name];
   if (!LucideIcon) return null;
@@ -170,6 +176,19 @@ export function FloatingEnquire({ onClick }) {
     }}>
       <CalendarHeart size={17} color="var(--forest-900)" /> Enquire
     </button>
+  );
+}
+
+export function FloatingWhatsApp() {
+  return (
+    <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" style={{
+      position: 'fixed', right: 26, bottom: 92, zIndex: 60,
+      display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+      width: 50, height: 50, borderRadius: 'var(--radius-pill)',
+      background: '#25D366', color: '#fff', boxShadow: 'var(--shadow-lg)',
+    }}>
+      <LucideIcons.MessageCircle size={24} color="#fff" strokeWidth={1.8} />
+    </a>
   );
 }
 
