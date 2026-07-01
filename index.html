@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VS Resort — Make Every Occasion Magical</title>
+    <style>
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; font-family: var(--font-body); color: var(--text-body); background: var(--cream-100); -webkit-font-smoothing: antialiased; }
+      a { text-decoration: none; }
+      @keyframes vsRise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
+      .vs-rise { opacity: 0; animation: vsRise 900ms cubic-bezier(.22,1,.36,1) forwards; }
+      @keyframes vsMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+      .vs-marquee { display: inline-flex; align-items: center; white-space: nowrap; will-change: transform; animation: vsMarquee linear infinite; }
+      .vs-marquee:hover { animation-play-state: paused; }
+      .vs-hscroll { scrollbar-width: none; -ms-overflow-style: none; }
+      .vs-hscroll::-webkit-scrollbar { display: none; }
+      .vs-hscroll:active { cursor: grabbing !important; }
+      .vs-grain::after {
+        content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 2;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+        mix-blend-mode: overlay;
+      }
+      .vs-viewtag { position: fixed; z-index: 70; pointer-events: none; transform: translate(-50%, -50%) scale(0);
+        width: 74px; height: 74px; border-radius: 50%; background: var(--gold-500); color: var(--forest-900);
+        display: flex; align-items: center; justify-content: center; font-family: var(--font-body);
+        font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+        transition: transform .3s cubic-bezier(.22,1,.36,1); }
+      .vs-viewtag.on { transform: translate(-50%, -50%) scale(1); }
+      @media (max-width: 1100px) { .vs-sideindex { display: none !important; } }
+      @media (max-width: 920px) { .vs-nav-links { display: none !important; } }
+      @media (prefers-reduced-motion: reduce) { .vs-marquee { animation: none; } }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

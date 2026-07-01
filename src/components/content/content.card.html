@@ -1,0 +1,56 @@
+<!-- @dsCard group="Components" viewport="700x560" name="Content — Headings, Cards, Stats, Quotes" subtitle="Section openers, amenity cards, stats and testimonials" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body { margin:0; font-family: var(--font-body); background: var(--cream-100); padding:30px; }
+  .block { margin-bottom:34px; }
+  .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .statband { background:var(--forest-800); border-radius:var(--radius-lg); padding:32px; display:flex; justify-content:space-around; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+  const DS = window.VSResortEarthyLuxeDesignSystem_4dccd3;
+  const { SectionHeading, AmenityCard, StatItem, QuoteBlock } = DS;
+  const Ic = ({ name, size=22 }) => {
+    const ref = React.useRef(null);
+    React.useEffect(() => { if (ref.current) { ref.current.innerHTML=''; ref.current.appendChild(lucide.createElement(lucide[name])); const s=ref.current.querySelector('svg'); if(s){s.setAttribute('width',size);s.setAttribute('height',size);} } });
+    return <span ref={ref} style={{display:'inline-flex'}} />;
+  };
+  function Demo() {
+    return (
+      <div>
+        <div className="block">
+          <SectionHeading eyebrow="The Venue" title="Make Every Occasion Magical"
+            subtitle="Banquet lawns, boutique suites and a crystal-blue pool, set in landscaped grounds." />
+        </div>
+        <div className="block grid3">
+          <AmenityCard icon={<Ic name="Trees" />} title="Banquet Lawns" description="Sprawling lawns for up to 1000 guests under the open sky." />
+          <AmenityCard icon={<Ic name="BedDouble" />} title="Guest Suites" description="Four boutique suites for an intimate overnight stay." />
+          <AmenityCard icon={<Ic name="Waves" />} title="Pool & Jacuzzi" description="A crystal-blue pool framed by loungers and palms." />
+        </div>
+        <div className="block statband">
+          <StatItem value="1000+" label="Guest Capacity" tone="light" />
+          <StatItem value="18" label="Acres of Lawns" tone="light" />
+          <StatItem value="4" label="Boutique Suites" tone="light" />
+        </div>
+        <div className="block" style={{marginBottom:0}}>
+          <QuoteBlock quote="They turned our wedding into pure magic — the lawns at dusk were unforgettable."
+            author="Aarti & Rohan" role="Wedding · November 2025" />
+        </div>
+      </div>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script>
+</body>
+</html>

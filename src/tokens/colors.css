@@ -1,0 +1,65 @@
+/* ============================================================
+   VS Resort — Earthy Luxe :: Color Tokens
+   ============================================================ */
+
+:root {
+  /* ---- Brand core ---- */
+  --cream:        #F8F2E8; /* warm paper / primary surface */
+  --forest:       #2F3D2A; /* deep forest green / primary ink */
+  --gold:         #C9A24B; /* metallic gold accent */
+
+  /* ---- Cream scale (warm neutrals) ---- */
+  --cream-50:     #FDFBF6;
+  --cream-100:    #F8F2E8;
+  --cream-200:    #F0E7D6;
+  --cream-300:    #E6D9C0;
+  --cream-400:    #D8C6A4;
+  --sand-500:     #C2AC83;
+
+  /* ---- Forest scale (greens) ---- */
+  --forest-900:   #1E281A;
+  --forest-800:   #2F3D2A;
+  --forest-700:   #3E5036;
+  --forest-600:   #516647;
+  --forest-400:   #7C8E72;
+  --forest-200:   #B4C0AC;
+
+  /* ---- Gold scale ---- */
+  --gold-700:     #A07E2E;
+  --gold-600:     #B8913C;
+  --gold-500:     #C9A24B;
+  --gold-400:     #D6B66E;
+  --gold-200:     #E8D4A3;
+
+  /* ---- Ink / text ---- */
+  --ink-900:      #20281C;
+  --ink-700:      #3A4434;
+  --ink-500:      #5E6857;
+  --ink-300:      #8C9484;
+
+  /* ---- Semantic aliases ---- */
+  --surface-page:     var(--cream-100);
+  --surface-raised:   var(--cream-50);
+  --surface-card:     #FFFFFF;
+  --surface-inverse:  var(--forest-800);
+  --surface-sunken:   var(--cream-200);
+
+  --text-heading:     var(--forest-800);
+  --text-body:        var(--ink-700);
+  --text-muted:       var(--ink-500);
+  --text-on-dark:     var(--cream-100);
+  --text-on-gold:     var(--forest-900);
+  --text-accent:      var(--gold-700);
+
+  --border-subtle:    var(--cream-300);
+  --border-default:   var(--cream-400);
+  --border-strong:    var(--forest-400);
+  --border-gold:      var(--gold-500);
+
+  --accent:           var(--gold-500);
+  --accent-hover:     var(--gold-600);
+  --accent-press:     var(--gold-700);
+
+  --focus-ring:       rgba(201, 162, 75, 0.45);
+  --overlay-scrim:    rgba(30, 40, 26, 0.55);
+}

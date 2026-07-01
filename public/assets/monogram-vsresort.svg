@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88 88" width="88" height="88" role="img" aria-label="VS Resort monogram">
+  <defs>
+    
+  </defs>
+  <circle cx="44" cy="44" r="37" fill="#2F3D2A"></circle>
+  <circle cx="44" cy="44" r="37" fill="none" stroke="#C9A24B" stroke-width="1.5"></circle>
+  <circle cx="44" cy="44" r="30" fill="none" stroke="#C9A24B" stroke-width="0.75" opacity="0.55"></circle>
+  <text class="mono" x="44" y="56" text-anchor="middle" font-size="34" fill="#F8F2E8">VS</text>
+</svg>

@@ -1,0 +1,37 @@
+<!-- @dsCard group="Components" viewport="700x340" name="Forms — Input, Textarea, Select" subtitle="Enquiry-form fields with gold focus ring" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body { margin:0; font-family: var(--font-body); background: var(--cream-100); padding:30px; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .full { grid-column:1 / -1; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+  const DS = window.VSResortEarthyLuxeDesignSystem_4dccd3;
+  const { Input, Textarea, Select, Button } = DS;
+  function Demo() {
+    return (
+      <div className="grid">
+        <Input label="Full Name" placeholder="Your name" />
+        <Input label="Phone" placeholder="+91 ..." />
+        <Select label="Occasion" placeholder="Select an occasion" options={['Wedding','Corporate Event','Birthday','Other']} />
+        <Input label="Event Date" type="date" />
+        <div className="full"><Textarea label="Tell us about your event" rows={3} placeholder="Guest count, vision, preferred lawn..." /></div>
+        <div className="full"><Button variant="primary" fullWidth>Send Enquiry</Button></div>
+      </div>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script>
+</body>
+</html>

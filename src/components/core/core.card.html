@@ -1,0 +1,74 @@
+<!-- @dsCard group="Components" viewport="700x430" name="Core — Buttons, Badges, Dividers" subtitle="Actions, markers and decorative rules" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body { margin:0; font-family: var(--font-body); background: var(--cream-100); padding:28px; color:var(--ink-700); }
+  .group { margin-bottom:26px; }
+  .glabel { font-size:11px; text-transform:uppercase; letter-spacing:.16em; color:var(--ink-500); margin-bottom:12px; }
+  .row { display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+  const DS = window.VSResortEarthyLuxeDesignSystem_4dccd3;
+  const { Button, IconButton, Badge, Eyebrow, Divider } = DS;
+  const Ic = ({ name, size=16 }) => {
+    const ref = React.useRef(null);
+    React.useEffect(() => { if (ref.current) { ref.current.innerHTML=''; ref.current.appendChild(lucide.createElement(lucide[name])); const s=ref.current.querySelector('svg'); if(s){s.setAttribute('width',size);s.setAttribute('height',size);} } });
+    return <span ref={ref} style={{display:'inline-flex'}} />;
+  };
+  function Demo() {
+    return (
+      <div>
+        <div className="group">
+          <div className="glabel">Buttons</div>
+          <div className="row">
+            <Button variant="primary">Enquire Now</Button>
+            <Button variant="secondary">Book a Tour</Button>
+            <Button variant="outline">View Gallery</Button>
+            <Button variant="ghost" iconRight={<Ic name="ArrowRight" />}>Read more</Button>
+          </div>
+          <div className="row" style={{marginTop:14}}>
+            <Button size="sm">Small</Button>
+            <Button size="md">Medium</Button>
+            <Button size="lg">Large</Button>
+          </div>
+        </div>
+        <div className="group">
+          <div className="glabel">Icon Buttons</div>
+          <div className="row">
+            <IconButton label="prev" variant="soft"><Ic name="ChevronLeft" size={18} /></IconButton>
+            <IconButton label="next" variant="outline"><Ic name="ChevronRight" size={18} /></IconButton>
+            <IconButton label="call" variant="gold"><Ic name="Phone" size={18} /></IconButton>
+          </div>
+        </div>
+        <div className="group">
+          <div className="glabel">Badges &amp; Eyebrow</div>
+          <div className="row">
+            <Badge tone="gold">Up to 1000 Guests</Badge>
+            <Badge tone="forest">4 Suites</Badge>
+            <Badge tone="sage">Poolside</Badge>
+            <Badge tone="cream">Open-air</Badge>
+            <Eyebrow>The Venue</Eyebrow>
+          </div>
+        </div>
+        <div className="group" style={{marginBottom:0}}>
+          <div className="glabel">Divider</div>
+          <Divider width="220px" />
+        </div>
+      </div>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script>
+</body>
+</html>
